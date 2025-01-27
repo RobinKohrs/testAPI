@@ -2,6 +2,7 @@
 import { json } from "@sveltejs/kit";
 
 export async function GET({ params }) {
+  const proxyUrl = "https://cors-anywhere.herokuapp.com/"; // Use a proxy service
   const { id } = params;
 
   // Construct the URL for the external API request
@@ -9,11 +10,7 @@ export async function GET({ params }) {
 
   try {
     // Make the request to the external API
-    const response = await fetch(url, {
-      headers: {
-        "User-Agent": "My SvelteKit App (https://test-api-blush.vercel.app)",
-      },
-    });
+    const response = await fetch(proxyUrl + targetUrl);
 
     // Check if the response is OK
     if (!response.ok) {
