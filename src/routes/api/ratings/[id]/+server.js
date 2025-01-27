@@ -2,7 +2,6 @@
 import { json } from "@sveltejs/kit";
 
 export async function GET({ params }) {
-  const proxyUrl = "https://cors-anywhere.herokuapp.com/"; // Use a proxy service
   const { id } = params;
 
   // Construct the URL for the external API request
@@ -10,12 +9,12 @@ export async function GET({ params }) {
 
   try {
     // Make the request to the external API
-    const response = await fetch(proxyUrl + url);
+    const response = await fetch(url);
 
     // Check if the response is OK
     if (!response.ok) {
       throw new Error(
-        `HTTP error! status: ${response.status} ${response.statusText} ${response} ${response.body} ${response.headers} ${response.type}`
+        `HTTP error! status: ${response.status} ${response.statusText}`
       );
     }
 
