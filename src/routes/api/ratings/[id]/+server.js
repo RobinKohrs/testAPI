@@ -10,7 +10,7 @@ export async function GET({ params }) {
 
   try {
     // Make the request to the external API
-    const response = await fetch(proxyUrl + targetUrl);
+    const response = await fetch(proxyUrl + url);
 
     // Check if the response is OK
     if (!response.ok) {
