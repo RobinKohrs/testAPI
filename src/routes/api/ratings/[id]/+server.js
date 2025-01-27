@@ -18,7 +18,7 @@ export async function GET({ params }) {
     // Check if the response is OK
     if (!response.ok) {
       throw new Error(
-        `HTTP error! status: ${response.status} ${response.statusText}`
+        `HTTP error! status: ${response.status} ${response.statusText} ${response}`
       );
     }
 
